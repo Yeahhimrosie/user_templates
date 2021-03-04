@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Age</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for each_user in all_users %}
+            <!-- each_user is a variable we are setting, all_users refers back to the "context" dictionary in the def -->
+            <tr>
+                <td>{{each_user.id}}</td>
+                <td>{{each_user.name}}</td>
+                <td>{{each_user.email}}</td>
+                <td>{{each_user.age}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/submit" method="POST">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" name="name">
+        <label for="email">Email</label>
+        <input type="text" name="email">
+        <label for="age">Age</label>
+        <input type="text" name="age">
+        <input type="submit" value="Submit">
+    </form>
+    <!-- hellooo this comment out works-->
+</body>
+</html>
